@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino Runner - Pixel Runner Game</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🦖</text></svg>">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Start Screen Overlay -->
+        <div id="start-screen" class="overlay">
+            <h1 class="game-title">DINO RUNNER</h1>
+            <p class="subtitle">A Pixel Adventure</p>
+
+            <div class="character-select">
+                <h3>Choose Your Character</h3>
+                <div class="characters">
+                    <div class="char-option selected" data-char="dino">
+                        <canvas class="char-preview" data-char="dino" width="60" height="60"></canvas>
+                        <span>Dino</span>
+                    </div>
+                    <div class="char-option" data-char="ninja">
+                        <canvas class="char-preview" data-char="ninja" width="60" height="60"></canvas>
+                        <span>Ninja</span>
+                    </div>
+                    <div class="char-option" data-char="astronaut">
+                        <canvas class="char-preview" data-char="astronaut" width="60" height="60"></canvas>
+                        <span>Astronaut</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="start-hint">Press <kbd>SPACE</kbd> or Tap to Start</p>
+            <button id="leaderboard-btn" class="btn">Leaderboard</button>
+        </div>
+
+        <!-- Game Over Overlay -->
+        <div id="gameover-screen" class="overlay hidden">
+            <h2 class="gameover-title">GAME OVER</h2>
+            <div class="score-summary">
+                <p>Score: <span id="final-score">0</span></p>
+                <p>Best: <span id="best-score">0</span></p>
+            </div>
+            <div id="new-highscore" class="hidden">
+                <p class="new-record">NEW RECORD!</p>
+                <input type="text" id="player-name" placeholder="Enter your name" maxlength="10">
+                <button id="save-score-btn" class="btn">Save</button>
+            </div>
+            <p class="restart-hint">Press <kbd>SPACE</kbd> or Tap to Restart</p>
+            <div class="gameover-buttons">
+                <button id="gameover-leaderboard-btn" class="btn">Leaderboard</button>
+                <button id="back-to-menu-btn" class="btn btn-secondary">Menu</button>
+            </div>
+        </div>
+
+        <!-- Victory Overlay -->
+        <div id="victory-screen" class="overlay hidden">
+            <h2 class="victory-title">YOU WIN!</h2>
+            <p class="victory-score">Score: <span id="victory-final-score">9999</span></p>
+            <p class="victory-msg">You conquered the run!</p>
+            <div id="victory-highscore" class="hidden">
+                <p class="new-record">NEW RECORD!</p>
+                <input type="text" id="victory-player-name" placeholder="Enter your name" maxlength="10">
+                <button id="victory-save-btn" class="btn">Save</button>
+            </div>
+            <div class="gameover-buttons">
+                <button id="victory-menu-btn" class="btn">Menu</button>
+                <button id="victory-leaderboard-btn" class="btn btn-secondary">Leaderboard</button>
+            </div>
+        </div>
+
+        <!-- Leaderboard Overlay -->
+        <div id="leaderboard-screen" class="overlay hidden">
+            <h2>Leaderboard</h2>
+            <div id="leaderboard-list"></div>
+            <button id="back-btn" class="btn">Back</button>
+        </div>
+
+        <!-- HUD -->
+        <div id="hud" class="hidden">
+            <div class="hud-left">
+                <span id="speed-indicator">Speed: 1x</span>
+            </div>
+            <div class="hud-right">
+                <span id="hi-score">HI 00000</span>
+                <span id="current-score">00000</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/sound.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/obstacle.js"></script>
+    <script src="js/easter-eggs.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
